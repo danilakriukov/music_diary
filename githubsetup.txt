@@ -27,4 +27,11 @@ git push -u origin main
 git commit -am "added setup info"
 git push
 
-git checkout -b kivyBranch
+#git checkout -b kivyBranch
+#git add .
+#git commit -am "setup kivyBranch"
+#git push
+
+git branch kivyBranch
+git branch -a #showes the branches in bash
+git checkout kivyBranch #switches to the branch
