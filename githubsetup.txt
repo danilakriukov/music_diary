@@ -37,3 +37,4 @@ git branch -a #showes the branches in bash
 git checkout kivyBranch #switches to the branch
 git add .
 git commit -m "setup kivyBranch"
+git push origin head
