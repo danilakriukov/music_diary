@@ -1,0 +1,17 @@
+
+mkdir .ssh
+cd .ssh
+pwd
+ls #list
+clear
+ssh-keygen.exe
+cat /c/Users/Данила/.ssh/id_rsa.pub
+
+cd C:/Users/Данила/Desktop/music_diary
+ls
+git config --global user.name "Danila Kriukov"
+git config --global user.email "2018.danilakriukov@gmail.com"
+git config --global push.default matching
+git config --global alias.co checkout
+git init
+#(master) branch is initialized

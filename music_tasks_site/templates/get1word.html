@@ -1,0 +1,48 @@
+<center>
+<form class='form' id = 'form' method='post' action="get2word">
+    <!--<h1 id = 'label'>Hi</h1>-->
+    <input type='text' id = 'text' name = 'text' autofocus placeholder="Имя ученика"></input>
+    <input type='text2' id = 'text2' name = 'text2' autofocus placeholder="Домашнее задание"></input>    
+    <!--<button id='button'>get info</button>-->
+    <button type ='submit' id='submit'>post info</button>
+</form>
+<h1>Список активных домашних заданий:</h1>
+<h1>{{listofwords}}</h1>
+<form method="post" action='listoftasks'>
+    <button type='submit'>Удалить все домашние задания!</button>
+</form>
+</center>
+<script>
+    document.getElementById('text2').disabled = true;
+    //document.getElementById('submit').disabled = true;
+</script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>-->
+    <!--<script>
+     var myForm = document.getElementById('form');
+     var text = document.getElementById('text');
+     var label = document.getElementById('label');
+
+     myForm.addEventListener ('submit',function (e){
+        e.preventDefault();
+        text = document.getElementById('text').value;
+        if (text == ''){
+            //label.innerHTML ='Hi';
+            document.getElementById("form").reset();
+        } else {
+            console.log(text);
+            label.innerHTML = text;
+            document.getElementById("form").reset();
+        }
+        //document.write(text);
+     })
+    function loadNewDecimal(){
+    $.ajax({
+        url:"/updated",
+        type:"POST",
+        dataType:"json",
+        success: function(data){
+          $(item).replaceWith(data)           
+        }
+    })
+}
+    </script>

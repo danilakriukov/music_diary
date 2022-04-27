@@ -1,0 +1,58 @@
+<form class='form' id = 'form' method='post' action="result">
+    <!--<h1 id = 'label'>Hi</h1>-->
+    <input type='text' id = 'text' name = 'text' autofocus placeholder="Имя ученика"></input>
+    <input type='text2' id = 'text2' name = 'text2' autofocus placeholder="Домашнее задание"></input>    
+    <!--<button id='button'>get info</button>-->
+    <button type ='submit' id='submit'>post info</button>
+</form>
+
+@app.route('/get2word', methods=['POST','GET'])
+def update():
+ wordsindb = request.form['text']
+ #conn = sqlite3.connect('french.db')
+ #cursor = conn.cursor()
+ #cursor.execute ("INSERT INTO french VALUES (?)",(wordsindb,))
+ #cursor.execute("SELECT * FROM french")
+ #listofwords = cursor.fetchall()
+ #conn.commit()
+ #print(wordsindb)
+ listofwords = 'works!'
+ my_db = mysql.connector.connect(
+    host = 'b500u5coeyqxe74jtgz2-mysql.services.clever-cloud.com',
+    user = 'u4guu7kkgslrpafp',
+    database = 'b500u5coeyqxe74jtgz2',
+    passwd = 'FstTZJ6TJJTxmEChRjMB',
+    port = 3306
+ )
+ my_cursor = my_db.cursor(buffered=True,dictionary=True)
+ inputtask = "INSERT INTO listoftasks (name,task) VALUES (%s,%s)"
+ #task1 = ('Гриша',wordsindb)
+ task1 = (wordsindb,'играй!')
+ my_cursor.execute(inputtask,task1)
+ my_db.commit()
+ my_cursor.execute("SELECT * FROM listoftasks")
+ tasksforoutputlist = my_cursor.fetchall()
+ tasksforoutput = str(tasksforoutputlist) 
+ return render_template("get2word.html", listofwords=tasksforoutput)
+
+
+ @app.route('/result', methods=['POST','GET'])
+def result():
+ wordsindb = request.form['text2']
+ my_db = mysql.connector.connect(
+    host = 'b500u5coeyqxe74jtgz2-mysql.services.clever-cloud.com',
+    user = 'u4guu7kkgslrpafp',
+    database = 'b500u5coeyqxe74jtgz2',
+    passwd = 'FstTZJ6TJJTxmEChRjMB',
+    port = 3306
+ )
+ my_cursor = my_db.cursor(buffered=True,dictionary=True)
+ inputtask = "INSERT INTO listoftasks (name,task) VALUES (%s,%s)"
+ task = ('Danila',wordsindb)
+ my_cursor.execute(inputtask,task)
+ my_db.commit()
+ my_cursor.execute("SELECT * FROM listoftasks")
+ tasksforoutputlist = my_cursor.fetchall()
+ tasksforoutput = str(tasksforoutputlist)      	
+ #tasksforoutput = 'tasks'	
+ return render_template("result.html", listofwords=tasksforoutput) 
