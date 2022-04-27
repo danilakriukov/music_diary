@@ -26,3 +26,5 @@ git push -u origin main
 #adding new stuff
 git commit -am "added setup info"
 git push
+
+git checkout -b kivyBranch
