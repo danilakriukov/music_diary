@@ -1,0 +1,31 @@
+mkdir /c/kivygui
+cd /c/kivygui
+python -m venv virt
+ls
+source virt/Scripts/activate
+pip freeze
+python -m pip install docutils pygments pypiwin32 kivy_deps.sdl2==0.1.*kivy_deps.glew==0.1.*
+
+
+python --version
+
+
+cd D:/music_diary/testkivy
+python -m venv virt
+source virt/Scripts/activate
+python virt/share/kivy-examples/demo/showcase/main.py
+
+
+
+python 3.10.4
+python -m pip install --upgrade pip setuptools virtualenv
+python -m virtualenv kivy_venv
+kivy_venv\Scripts\activate
+pip install kivy-deps.sdl2
+pip install kivy-deps.glew
+pip install docutils pygments pypiwin32
+python -m pip install "kivy[base]" kivy_examples
+
+Run kivy
+CMD
+kivy_venv\Scripts\activate
