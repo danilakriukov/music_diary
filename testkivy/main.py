@@ -9,6 +9,7 @@ from kivy.uix.widget import Widget
 from kivy.core.window import Window
 import mysql.connector
 
+
 my_db = mysql.connector.connect(
     host = 'b500u5coeyqxe74jtgz2-mysql.services.clever-cloud.com',
     user = 'u4guu7kkgslrpafp',
@@ -22,9 +23,24 @@ my_cursor = my_db.cursor(buffered=True,dictionary=True)
 my_cursor.execute("SELECT * FROM listoftasks")
 tasksforoutputlist = my_cursor.fetchall()
 tasksforoutput = str(tasksforoutputlist)
+#tasksforoutput = 'lala'
 
 class Hogweed(App):
     def build(self):
+        my_db = mysql.connector.connect(
+          host = 'b500u5coeyqxe74jtgz2-mysql.services.clever-cloud.com',
+          user = 'u4guu7kkgslrpafp',
+          database = 'b500u5coeyqxe74jtgz2',
+          passwd = 'FstTZJ6TJJTxmEChRjMB',
+          port = 3306
+        ) 
+
+
+        my_cursor = my_db.cursor(buffered=True,dictionary=True)
+        my_cursor.execute("SELECT * FROM listoftasks")
+        tasksforoutputlist = my_cursor.fetchall()
+        tasksforoutput = str(tasksforoutputlist)
+        
         #self.window.load_file('background_color.kv')
         Window.clearcolor = (1,1,1,1)
         self.window = GridLayout()

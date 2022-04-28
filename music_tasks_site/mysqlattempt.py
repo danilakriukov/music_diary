@@ -30,6 +30,8 @@ def listoftasks():
  my_cursor.execute("SELECT * FROM listoftasks")
  tasksforoutputlist = my_cursor.fetchall()   
  tasksforoutput = str(tasksforoutputlist)
+ my_cursor.close()
+ my_db.close()
  return render_template("listoftasks.html",listofwords=tasksforoutput) 
 
 
@@ -69,7 +71,8 @@ def main():
  tasksforoutput = str(tasksforoutputlist)
  print(tasksforoutput)
  #tasksforoutpu = 'lala'	
-
+ my_cursor.close()
+ my_db.close()
  return render_template("get1word.html",listofwords=tasksforoutput)
 
 
@@ -88,7 +91,9 @@ def deleting():
  my_db.commit()
  my_cursor.execute("SELECT * FROM listoftasks") 
  tasksforoutputlist = my_cursor.fetchall()
- tasksforoutput = str(tasksforoutputlist)      
+ tasksforoutput = str(tasksforoutputlist)
+ my_cursor.close()
+ my_db.close()      
  return render_template("listoftasks.html",listofwords=tasksforoutput)
 
 
@@ -109,7 +114,9 @@ def update():
  my_db.commit()
  my_cursor.execute("SELECT * FROM listoftasks")
  tasksforoutputlist = my_cursor.fetchall()
- tasksforoutput = str(tasksforoutputlist) 
+ tasksforoutput = str(tasksforoutputlist)
+ my_cursor.close()
+ my_db.close() 
  return render_template("get2word.html", listofwords=tasksforoutput)
 
 
@@ -137,6 +144,8 @@ def result():
  tasksforoutputlist = my_cursor.fetchall()
  tasksforoutput = str(tasksforoutputlist)      	
  #tasksforoutput = 'tasks'	
+ my_cursor.close()
+ my_db.close()
  return render_template("result.html", listofwords=tasksforoutput) 
 
 
